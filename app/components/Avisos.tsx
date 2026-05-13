@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export function Avisos() {
-  const [post, setPost] = useState<any>(null);
+  const [post, setPost] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   // 1. Criamos um estado para saber se houve erro
   const [houveErro, setHouveErro] = useState(false);
@@ -15,7 +15,7 @@ export function Avisos() {
 
         // Simulando a "ligação" para o servidor
         const resposta = await fetch(
-          "https://jsonplaceholder.typicode.com/posts/2",
+          "https://jsonplaceholder.typicode.com/posts",
         );
 
         if (!resposta.ok) {
@@ -52,11 +52,21 @@ export function Avisos() {
     );
 
   return (
-    <div className="bg-slate-900 p-4 rounded-lg border border-blue-500/30 max-w-md">
-      <h3 className="text-blue-400 font-bold mb-2 uppercase text-xs">
-        Alerta de Tráfego
-      </h3>
-      <p className="text-sm text-slate-300">{post?.title}</p>
+    <div className="flex flex-col gap-4 max-w-md w-full">
+      <h2 className="text-xl font-bold text-blue-400">Alertas do Sistema</h2>
+
+      {/* Aqui a mágica acontece */}
+      {post.slice(0, 5).map((item: any) => (
+        <div
+          key={item.id}
+          className="bg-slate-900 p-4 rounded-xl border-l-4 border-blue-500 shadow-lg"
+        >
+          <span className="text-[10px] text-slate-500 uppercase tracking-widest font-mono">
+            ID: #00{item.id}
+          </span>
+          <p className="text-sm text-slate-200 mt-1">{item.title}</p>
+        </div>
+      ))}
     </div>
   );
 }
