@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AvisoItem } from "./AvisoItem";
 
 export function Avisos() {
   const [post, setPost] = useState<any[]>([]);
@@ -57,15 +58,7 @@ export function Avisos() {
 
       {/* Aqui a mágica acontece */}
       {post.slice(0, 5).map((item: any) => (
-        <div
-          key={item.id}
-          className="bg-slate-900 p-4 rounded-xl border-l-4 border-blue-500 shadow-lg"
-        >
-          <span className="text-[10px] text-slate-500 uppercase tracking-widest font-mono">
-            ID: #00{item.id}
-          </span>
-          <p className="text-sm text-slate-200 mt-1">{item.title}</p>
-        </div>
+        <AvisoItem key={item.id} id={item.id} titulo={item.title} />
       ))}
     </div>
   );
