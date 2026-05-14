@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Velocimetro } from "../components/Velocimetro";
 import { Status } from "../components/Status";
-import { Avisos } from "../components/Avisos";
+import Avisos from "@/components/Avisos";
 
 // 1. Este é um COMPONENTE FILHO.
 // Ele é como uma função que retorna HTML (JSX).
