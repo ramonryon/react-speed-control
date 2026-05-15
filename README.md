@@ -25,4 +25,4 @@ A modern dashboard built with **Next.js**, **TypeScript**, and **Tailwind CSS**.
 2. `npm run dev`
 
 ---
-Developed by **Ramon**
+Developed by **Ramon Ryon**
